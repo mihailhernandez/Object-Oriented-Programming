@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp test.hpp -o program
+	g++ main.cpp -o program
