@@ -15,7 +15,6 @@ struct Student
 
     Student(const unsigned int fac_num, const char *f_name, const char *l_name) 
     {
-        faculty_number = 0;
         first_name = new char[255];
         last_name = new char[255];
         set_faculty_number(fac_num);
