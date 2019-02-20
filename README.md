@@ -13,6 +13,13 @@ _g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0_
 ## Table of contents
 
 ### Seminars 
+----------------------
 
 #### Classes
 _[2019/02/18](./Seminars/Tasks/2019/02/18)_</br>
+
+### Practices 
+----------------------- 
+
+#### Classes
+_[2019/02/20](./Practices/Tasks/2019/02/20)_</br>
