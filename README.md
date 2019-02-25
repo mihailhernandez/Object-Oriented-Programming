@@ -16,6 +16,7 @@ _g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0_
 
 #### _Classes_</br>
  - _[2019-02-18](./Seminars/Tasks/2019/02/18)_</br>
+ - _[2019-02-25](./Seminars/Tasks/2019/02/25)_</br>
 
 ### Practices  
 
