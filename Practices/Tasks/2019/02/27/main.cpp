@@ -1,15 +1,16 @@
 #include <iostream>
 #include <cstdlib>
 
-#define SIZE 4
-const int s = 4;
+// Preprocessor -> # directories
+#define SIZE 4    // both valid ways to have a global constant
+const int S = 4;  
 
 void func();
-//void func();  redefinition error.
+// void func();  redefinition error.
+// int func();   ambiguating new declaration of ‘int func()’
 
 int sum(int a, int b);
 
-// Same as above.
 // int sum(int a, int b);
 
 // Valid because of the different signatures.
@@ -27,7 +28,7 @@ struct Student
     public:
 
     unsigned int faculty_number;
-    char *grades;
+    char grades[MAX_NUMBER_OF_GRADES];
 
     public:
 
@@ -46,9 +47,10 @@ struct Student
     }
 
     // Setter / mutator for the grades field
-    void set_grades(char *grades)
+    void set_grades(char grades[MAX_NUMBER_OF_GRADES])
     {
-        this->grades = grades; 
+        for (size_t i = 0; i < MAX_NUMBER_OF_GRADES; i++)
+            this->grades[i] = grades[i]; 
     }
 
     // Getter / accessor for the faculty number field 
@@ -58,7 +60,7 @@ struct Student
     }
 
     // Getter / accessor for the grades field 
-    char* get_grades() const
+    char* get_grades()
     {
         return grades;
     }
@@ -71,13 +73,12 @@ int main()
 
     for (size_t i = 0; i < MAX_NUMBER_OF_STUDENTS; i++)
     {
-        char *grades = new char[MAX_NUMBER_OF_GRADES];
         unsigned int fac_num;
         std::cin >> fac_num;
-        for (size_t j = 0; j < MAX_NUMBER_OF_GRADES; j++)
-            std::cin >> grades[j];
         students[i].set_faculty_number(fac_num);
-        students[i].set_grades(grades);
+
+        for (size_t j = 0; j < MAX_NUMBER_OF_GRADES; j++) 
+            std::cin >> students[i].get_grades()[j];
     }
 
     for (size_t i = 0; i < MAX_NUMBER_OF_STUDENTS; i++)
