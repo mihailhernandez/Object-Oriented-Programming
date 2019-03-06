@@ -23,3 +23,4 @@ _g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0_
 #### _Classes_</br>
  - _[2019-02-20](./Practices/Tasks/2019/02/20)_</br>
  - _[2019-02-27](./Practices/Tasks/2019/02/27)_</br>
+ - _[2019-03-06](./Practices/Tasks/2019/03/06)_</br>
