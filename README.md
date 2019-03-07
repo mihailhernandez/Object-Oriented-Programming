@@ -12,15 +12,22 @@ _g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0_
 
 ## Table of contents
 
-### Seminars
+# _Conspect_
+_[Тематичен план 2019г (конспект)](./Lectures/Lectures/Тематичен%20план.pdf)_</br>
 
-#### _Classes_</br>
+### _Lectures_
+_1. [Обектно-ориентирано програмиране](./Lectures/Lectures/ООП.pdf)_</br>
+_2. [Запис](./Lectures/Lectures/Запис.pdf)_</br>
+_3. [Абстракция](./Lectures/Lectures/Абстракция.pdf)_</br>
+
+### _Lecture homework_
+_1. [Homework1](./Lectures/Homeworks/Homework_1/)_</br>
+
+### _Seminar classes_
  - _[2019-02-18](./Seminars/Tasks/2019/02/18)_</br>
  - _[2019-02-25](./Seminars/Tasks/2019/02/25)_</br>
 
-### Practices  
-
-#### _Classes_</br>
+### _Practice classes_
  - _[2019-02-20](./Practices/Tasks/2019/02/20)_</br>
  - _[2019-02-27](./Practices/Tasks/2019/02/27)_</br>
  - _[2019-03-06](./Practices/Tasks/2019/03/06)_</br>
