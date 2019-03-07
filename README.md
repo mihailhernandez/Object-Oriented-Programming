@@ -12,7 +12,7 @@ _g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0_
 
 ## Table of contents
 
-# _Conspect_
+### _Conspect_
 _[Тематичен план 2019г (конспект)](./Lectures/Lectures/Тематичен%20план.pdf)_</br>
 
 ### _Lectures_
