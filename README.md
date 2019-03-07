@@ -21,7 +21,7 @@ _2. [Запис](./Lectures/Lectures/Запис.pdf)_</br>
 _3. [Абстракция](./Lectures/Lectures/Абстракция.pdf)_</br>
 
 ### _Lecture homework_
-_1. [Homework1](./Lectures/Homeworks/Homework_1/)_</br>
+_1. [Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
 
 ### _Seminar classes_
  - _[2019-02-18](./Seminars/Tasks/2019/02/18)_</br>
