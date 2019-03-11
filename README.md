@@ -26,6 +26,7 @@ _1. [Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
 ### _Seminar classes_
  - _[2019-02-18](./Seminars/Tasks/2019/02/18)_</br>
  - _[2019-02-25](./Seminars/Tasks/2019/02/25)_</br>
+ - _[2019-03-11](./Seminars/Tasks/2019/03/11)_</br>
 
 ### _Practice classes_
  - _[2019-02-20](./Practices/Tasks/2019/02/20)_</br>
