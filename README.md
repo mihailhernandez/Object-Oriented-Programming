@@ -19,6 +19,8 @@ _[Тематичен план 2019г (конспект)](./Lectures/Lectures/Т�
 _1. [Обектно-ориентирано програмиране](./Lectures/Lectures/ООП.pdf)_</br>
 _2. [Запис](./Lectures/Lectures/Запис.pdf)_</br>
 _3. [Абстракция](./Lectures/Lectures/Абстракция.pdf)_</br>
+_4. [Потоци](./Lectures/Lectures/Потоци.pdf)_</br>
+_5. [Файлове част 1](./Lectures/Lectures/Файлове%20част%201.pdf)_</br>
 
 ### _Lecture homework_
 _1. [Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
