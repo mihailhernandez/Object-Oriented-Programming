@@ -107,6 +107,7 @@ Student** deserialize(const char* file_name)
 		file.read((char*)&name_len, sizeof(int));
 		char* name = new char[name_len];
 		file.read((char*)&name, sizeof(char) * name_len);
+		delete name;
 
 		students[i] = new Student(name, fac_num);
 	}
@@ -139,6 +140,8 @@ int main()
 	
 	for (size_t i = 0; i < STUDENT_COUNT; i++)
 		new_students[i]->print();
+
+	delete[] new_students;
 
 	return 0;
 }
