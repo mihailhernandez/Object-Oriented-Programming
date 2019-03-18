@@ -15,9 +15,11 @@ struct Test2
 
 int get_file_size(std::ifstream& f)
 {
-	std::streampos fsize = f.tellg();
+	std::streampos fstart = f.tellg();
 	f.seekg(0, std::ios::end);
-	return f.tellg() - fsize; 
+	std::streampos fend = f.tellg();
+	f.seekg(0, std::ios::beg);
+	return fend - fstart; 
 }
 
 int main()
@@ -39,6 +41,8 @@ int main()
 	std::ifstream ifile("test.bin", std::ios::binary);
 
 	int size_of_file = get_file_size(ifile);
+
+	std::cout << size_of_file << std::endl;
 	int object_count = size_of_file / sizeof(Test2);
 
 	Test2* arr = new Test2[object_count];
