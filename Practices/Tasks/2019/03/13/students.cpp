@@ -24,7 +24,7 @@ struct Student
 
 	~Student()
 	{
-		delete name;
+		delete[] name;
 	}
 
 	unsigned int get_fac_num() const
@@ -34,7 +34,9 @@ struct Student
 
 	const char* get_name() const
 	{
-		return this->name;
+		char* name = new char[strlen(this->name)];
+		std::strcpy(name, this->name); 
+		return name;
 	}
 
 	void set_fac_num(unsigned int fac_num)
@@ -67,7 +69,7 @@ int serialize(const Student* students, const unsigned int STUDENT_COUNT, const c
 		return -1;
 	}
 
-	file.write((char*)&STUDENT_COUNT, sizeof(int));
+	file.write((char*)&STUDENT_COUNT, sizeof(unsigned int));
 
 	for (size_t i = 0; i < STUDENT_COUNT; i++)
 	{
@@ -75,8 +77,8 @@ int serialize(const Student* students, const unsigned int STUDENT_COUNT, const c
 		unsigned int fac_num = students[i].get_fac_num();
 		unsigned int name_len = strlen(students[i].get_name());
 
-		file.write((char*)&fac_num, sizeof(int));
-		file.write((char*)&name_len, sizeof(int));
+		file.write((char*)&fac_num, sizeof(unsigned int));
+		file.write((char*)&name_len, sizeof(unsigned int));
 		file.write((char*)&name, sizeof(char) * name_len);
 	}
 
@@ -96,7 +98,7 @@ Student** deserialize(const char* file_name)
 	}
 
 	unsigned int student_count;
-	file.read((char*)&student_count, sizeof(int));
+	file.read((char*)&student_count, sizeof(unsigned int));
 
 	Student** students = new Student*[student_count];
 
@@ -105,13 +107,13 @@ Student** deserialize(const char* file_name)
 		unsigned int fac_num;
 		unsigned int name_len;
 
-		file.read((char*)&fac_num, sizeof(int));
-		file.read((char*)&name_len, sizeof(int));
+		file.read((char*)&fac_num, sizeof(unsigned int));
+		file.read((char*)&name_len, sizeof(unsigned int));
 		char* name = new char[name_len];
 		file.read((char*)&name, sizeof(char) * name_len);
 		students[i] = new Student(name, fac_num);
 		
-		delete name;
+		delete[] name;
 	}
 	
 	file.close();
