@@ -24,6 +24,7 @@ _5. [Файлове част 1](./Lectures/Lectures/Файлове%20част%20
 
 ### _Lecture homework_
 _1. [Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
+_2. [Homework 2](./Lectures/Homeworks/Homework_2/)_</br>
 
 ### _Seminar classes_
  - _[2019-02-18](./Seminars/Tasks/2019/02/18)_</br>
