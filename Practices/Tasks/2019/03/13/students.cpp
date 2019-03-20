@@ -18,13 +18,13 @@ struct Student
 	Student(const char* name, const unsigned int fac_num)
 	{
 		this->name = new char[strlen(name)];
-		std::strcpy(this->name, name);
-		this->fac_num = fac_num;
+		set_name(this->name);
+		set_fac_num(fac_num);
 	}
 
 	~Student()
 	{
-		delete[] name;
+		delete name;
 	}
 
 	unsigned int get_fac_num() const
@@ -37,8 +37,10 @@ struct Student
 		return this->name;
 	}
 
-	void set_fac_num(const unsigned int fac_num)
+	void set_fac_num(unsigned int fac_num)
 	{
+		if (fac_num < 0)
+			fac_num = 0;
 		this->fac_num = fac_num;
 	}
 
