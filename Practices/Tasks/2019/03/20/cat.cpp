@@ -1,9 +1,8 @@
-#include <iostream>
 #include <fstream>
 
 int main()
 {
 	std::ifstream file(__FILE__);
-	while (!file.eof() && std::cout << (char)file.get());
+	while (file.peek() != EOF && putchar(file.get()));
 	return 0;
 }
