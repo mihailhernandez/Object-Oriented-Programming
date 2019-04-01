@@ -9,7 +9,6 @@ __Класът трябва да има 3 член-данни:__</br>
  - *година* 
  
 __Класът трябва да има:__
-
 - Конструктор по подразбиране, който прави датата на 01.01.
 - Конструктор, който приема като аргумент ден, месец и година.
 - Метод, който приема като параметър число n и увеличава датата с n дни.
@@ -23,28 +22,25 @@ __Извън класа:__ </br>
 Реализайте функция, която приема 2 обекта от тип дата и
 връща нов обект от същия тип, който е разликата м/у двете дати.</br>
 
-{</br>
-	Date d1(31, 3, 2014);                // 31.03.</br>
-	Date d2;                             //01.01.</br>
-	d1.addDays(1);                       // 01.04.</br>
-	d1.isLeapYear();                     //false (2014 is not a leap year)</br>
-	d1.isLaterThen(d2);                  //true</br>
-	Date result = getDifference(d1, d2); //31.03.</br>
-}</br>
+Date d1(31, 3, 2014);</br>
+Date d2;</br>
+d1.addDays(1);</br>
+d1.isLeapYear();</br>
+d1.isLaterThen(d2);</br>
+Date result = getDifference(d1, d2);</br>
 
 ## 2. Battle City tournament
 
 Сето Кайба организира турнир по __Ю-Ги-О!__, но е съкратил бюджета в </br>
 компютурния отдел и помолил нас да организираме базата данни с всички<br>
 дуелисти в турнира.</br>
-
-Трябва да реализирате клас __Ю-Ги-О!__ карта (Card).</br>
-*Ще работим с 2 типа карти:* 
+{</br>
+__Трябва да реализирате клас Ю-Ги-О! карта (Card).__</br>
+*__Ще работим с 2 типа карти:__* 
 - __"Карта чудовище"__
 - __"Магическа карта"__
 
 __Всяка карта има:__ </br>
-
 - Име (Низ с дължина до 25 символа)
 - Атакуващи точки ( ако е чудовище)(цяло число между 0 и 5000)
 - Защитни точки ( ако е чудовище)(цяло число между 0 и 5000) </br>
@@ -71,22 +67,18 @@ __Реализирайте клас дуелист (Duelist).Той трябва
 - Тесте
 - Дуелистът трябва да има същите методи като в deck, с които да променяме тестето му.
 
-{</br>
-	Deck d;              
-	d.changeCard(4, "Blue-eyes white dragon", 3000, 2500);</br>
-	d.changeCard(5, "Monster reborn");</br>
-	d.getMagicCardCount(); //</br>
-	d.getMonsterCardCount(); //
-	d.saveToFile("MyDeck.bat"); //Saves the deck in to a file</br>
-	Deck d2("MyDeck.bat"); //Loads the deck from the file</br>
-}</br>
+Deck d; </br>             
+d.changeCard(4, "Blue-eyes white dragon", 3000, 2500);</br>
+d.changeCard(5, "Monster reborn");</br>
+d.getMagicCardCount();</br>
+d.getMonsterCardCount();</br>
+d.saveToFile("MyDeck.bat");</br>
+Deck d2("MyDeck.bat");</br>
 
-{</br>
-	Duelist player1("Seto Kaiba");</br>
-	player1.changeCardInDeck(2, "Blue-eyes white dragon", 3000, 2500);</br>
-	Duelist player1("Yugi Muto");</br>
-	player1.changeCardInDeck(2, "Dark magician", 2500, 2100);</br>
-}</br>
+Duelist player1("Seto Kaiba");</br>
+player1.changeCardInDeck(2, "Blue-eyes white dragon", 3000, 2500);</br>
+Duelist player1("Yugi Muto");</br>
+player1.changeCardInDeck(2, "Dark magician", 2500, 2100);</br>
 
 __ВАЖНО. Реализирайте задачите спазвайки добрите ООП практики ( вали-</br>
 дация на данните, подходяща капсулация и тн.) и реализирайте "голямата</br>
