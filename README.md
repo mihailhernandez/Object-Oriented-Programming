@@ -21,11 +21,10 @@ _2. [Запис](./Lectures/Lectures/Запис.pdf)_</br>
 _3. [Абстракция](./Lectures/Lectures/Абстракция.pdf)_</br>
 _4. [Потоци](./Lectures/Lectures/Потоци.pdf)_</br>
 _5. [Файлове](./Lectures/Lectures/Файлове.pdf)_</br>
-_6. [Файлове](./Lectures/Lectures/Файлове.pdf)_</br>
-_7. [Класове](./Lectures/Lectures/Класове.pdf)_</br>
-_8. [Конструктори](./Lectures/Lectures/Конструктори.pdf)_</br>
-_9. [Указатели и масиви от обекти](./Lectures/Lectures/Указатели%20и%20масиви%20от%20обекти.pdf)_</br>
-_10. [Дестуктор и оператор за присвояване](./Lectures/Lectures/Деструктор%20и%20оператор%20за%20присвояване.pdf)_</br>
+_6. [Класове](./Lectures/Lectures/Класове.pdf)_</br>
+_7. [Конструктори](./Lectures/Lectures/Конструктори.pdf)_</br>
+_8. [Указатели и масиви от обекти](./Lectures/Lectures/Указатели%20и%20масиви%20от%20обекти.pdf)_</br>
+_9. [Дестуктор и оператор за присвояване](./Lectures/Lectures/Деструктор%20и%20оператор%20за%20присвояване.pdf)_</br>
 
 ### _Lecture homework_
 _1. [Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
