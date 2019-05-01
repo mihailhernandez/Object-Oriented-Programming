@@ -1,38 +1,24 @@
 #include "Task.hpp"
-#include <cstring>
 
-Task::Task(const char * name)
+Task::Task(const char* command)
 {
-	set_name(name);
+	set_command(command);
+}
+
+void Task::set_command(const char* command)
+{
+	this->command = new char[strlen(command) + 1];
+	strcpy(this->command, command);
 }
 
 Task::~Task()
 {
-	delete[] name;
+	delete[] command;
 }
 
-char * Task::get_name() const
+char* Task::get_command() const
 {
-	char * copy = new char[strlen(name)];
-	strcpy(copy, name);
+	char* copy = new char[strlen(command) + 1];
+	strcpy(copy, command);
 	return copy;
-}
-
-void Task::copy(const Task& other)
-{
-	char * other_name = other.get_name();
-	this->name = new char[strlen(other_name)];
-	strcpy(this->name, other_name);
-	delete[] other_name;
-}
-
-Task& Task::operator=(const Task& other)
-{
-	copy(other);
-	return *this;
-}
-
-Task::Task(const Task& other)
-{
-	copy(other);
 }

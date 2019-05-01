@@ -1,19 +1,21 @@
 #ifndef __TASK__
 #define __TASK__
+#include <cstring>
+#include <iostream>
+#include "Constants.hpp"
 
 class Task
 {
 public:
 	~Task();
-	virtual void execute() = 0;
-	char * get_name() const;
-	Task& operator=(const Task& other);
-	Task(const Task& other);
+	virtual void execute() const = 0;
+	char* get_command() const;
 protected:
-	char * name;
-	Task(const char * name);
+	char* command = nullptr;
+	Task(const char* command);
+	void set_command(const char* command);
 private:
-	void copy();
+	void copy(const Task& other);
 };
 
 #endif 
