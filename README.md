@@ -65,3 +65,9 @@ _18. [Виртуални функции. Абстрактни класове](./
 
 ### _Practice exams_
  - _[Exam 1](./Practices/Exams/Exam_1/)_</br>
+
+### _Practice final project descriptions_
+ - _[Final Projects](./Practices/Projects/ООП-проекти.pdf)_</br>
+
+### _Practice final project_
+  - _[Practice final project](./Practices/Projects/OOP%20Final%20Project/OOP%20Final%20Project)_</br>
