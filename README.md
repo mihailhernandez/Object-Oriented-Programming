@@ -70,4 +70,4 @@ _18. [Виртуални функции. Абстрактни класове](./
  - _[Final Projects](./Practices/Projects/ООП-проекти.pdf)_</br>
 
 ### _Practice final project_
-  - _[Practice final project](./Practices/Projects/OOP%20Final%20Project/OOP%20Final%20Project)_</br>
+  - _[Practice final project](./Practices/Projects/OOP%20Final%20Project/Student%20booklet)_</br>
