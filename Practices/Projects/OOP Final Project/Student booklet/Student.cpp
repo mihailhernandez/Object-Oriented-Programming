@@ -37,13 +37,13 @@ void Student::set_faculty_number(const unsigned int faculty_number)
 void Student::set_first_name(const char* first_name)
 {
 	delete[] this->first_name;
-	this->first_name = copy_string(first_name);
+	this->first_name = Utils::copy_string(first_name);
 }
 
 void Student::set_last_name(const char* last_name)
 {
 	delete[] this->last_name;
-	this->last_name = copy_string(last_name);
+	this->last_name = Utils::copy_string(last_name);
 }
 
 unsigned int Student::get_faculty_number() const
@@ -53,12 +53,12 @@ unsigned int Student::get_faculty_number() const
 
 char* Student::get_first_name() const
 {
-	return copy_string(this->first_name);
+	return Utils::copy_string(this->first_name);
 }
 
 char* Student::get_last_name() const
 {
-	return copy_string(this->last_name);
+	return Utils::copy_string(this->last_name);
 }
 
 void Student::copy(const Student& other_student)

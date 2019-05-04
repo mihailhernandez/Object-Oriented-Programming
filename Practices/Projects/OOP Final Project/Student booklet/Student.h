@@ -1,5 +1,4 @@
-#ifndef __STUDENT__
-#define __STUDENT__
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -34,6 +33,3 @@ std::istream& operator>>(std::istream&, Student&);
 std::ostream& operator<<(std::ostream&, const Student&);
 std::ifstream& operator>>(std::ifstream&, Student&);
 std::ofstream& operator<<(std::ofstream&, const Student&);
-
-#endif
-
