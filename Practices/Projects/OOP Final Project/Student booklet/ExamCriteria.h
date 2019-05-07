@@ -4,8 +4,9 @@
 class ExamCriteria : public Criteria
 {
 public:
-	ExamCriteria();
-	~ExamCriteria();
+	Criteria* get_instance();
 	double calculate() const;
+private:
+	ExamCriteria();
 };
 

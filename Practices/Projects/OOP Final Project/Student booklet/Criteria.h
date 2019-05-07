@@ -3,10 +3,9 @@
 class Criteria
 {
 public:
-	Criteria(const double);
 	virtual double calculate() const = 0;
-	void set_weight(const double);
-	double get_weight() const;
-private:
-	double weight;
+	virtual Criteria* get_instance() = 0;
+protected:
+	Criteria* criteria;
+	Criteria();
 };

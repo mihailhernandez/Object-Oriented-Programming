@@ -75,8 +75,8 @@ void Student::copy(const Student& other_student)
 std::istream& operator>>(std::istream& input_stream, Student& student)
 {
 	unsigned int faculty_number;
-	char* first_name = new char[Constants::MAX_FIRST_NAME_LENGTH];
-	char* last_name = new char[Constants::MAX_LAST_NAME_LENGTH];
+	char* first_name = new char[Constants::Student::MAX_FIRST_NAME_LENGTH];
+	char* last_name = new char[Constants::Student::MAX_LAST_NAME_LENGTH];
 	input_stream >> faculty_number >> first_name >> last_name;
 	student.set_faculty_number(faculty_number);
 	student.set_first_name(first_name);
@@ -91,7 +91,7 @@ std::ostream& operator<<(std::ostream& output_stream, const Student& student)
 	char* first_name = student.get_first_name();
 	char* last_name = student.get_last_name();
 	output_stream << student.get_faculty_number() << " "
-		<< first_name << " " << last_name << std::endl;
+		<< first_name << " " << last_name;
 	delete[] first_name;
 	delete[] last_name;
 	return output_stream;

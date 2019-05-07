@@ -1,6 +1,19 @@
 #include <iostream>
+#include "Booklet.h"
+#include "Student.h"
+#include "DynamicArray.cpp"
+#include "ExamCriteria.h"
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	/* ----------------------- STUDENTS -------------------------- */
+	DynamicArray<Student> students;
+	students.push_back(Student(45555, "Vladimir", "Ivanov"));
+	students.push_back(Student(45556, "Mihail", "Petkov"));
+	students.push_back(Student(45557, "Kristian", "Georgiev"));
+
+	for (auto s : students)
+		std::cout << s << std::endl;
+
+	return 0;
 }
