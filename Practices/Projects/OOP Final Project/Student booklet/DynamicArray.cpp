@@ -1,6 +1,6 @@
 #pragma once
+
 #include "DynamicArray.h"
-#include "ostream"
 
 const unsigned int INITIAL_CAPACITY = 4;
 
@@ -135,5 +135,38 @@ typename DynamicArray<T>::Iterator DynamicArray<T>::end() const
 {
 	return DynamicArray<T>::Iterator{ this, this->size};
 }
+/*
+template <class T>
+std::ostream& operator<<(std::ostream& output_stream, const DynamicArray<T>& array)
+{
+	for (auto elem : array)
+		output_stream << elem;
+	return output_stream;
+}
 
+template <class T>
+std::ofstream& operator<<(std::ofstream& file_output_stream, const DynamicArray<T>& array)
+{
+	for (auto elem : array)
+		file_output_stream << elem;
+	return file_output_stream;
+}
 
+template <class T>
+std::istream& operator>>(std::istream& input_stream, DynamicArray<T>& array)
+{
+	T elem;
+	input_stream >> elem;
+	array.push_back(elem);
+	return input_stream;
+}
+
+template <class T>
+std::ifstream& operator>>(std::ifstream& file_input_stream, DynamicArray<T>& array)
+{
+	T elem;
+	file_input_stream >> elem;
+	array.push_back(elem);
+	return file_input_stream;
+}
+*/

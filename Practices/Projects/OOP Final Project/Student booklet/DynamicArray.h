@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iostream>
+#include <fstream>
+
 template <class T>
 class DynamicArray
 {
@@ -40,3 +43,16 @@ private:
 	void copy(const DynamicArray&);
 	void resize();
 };
+/*
+template <class T>
+std::ostream& operator<<(std::ostream&, const DynamicArray<T>&);
+
+template <class T>
+std::ofstream& operator<<(std::ofstream&, const DynamicArray<T>&);
+
+template <class T>
+std::istream& operator>>(std::istream&, DynamicArray<T>&);
+
+template <class T>
+std::ifstream& operator>>(std::ifstream&, DynamicArray<T>&);
+*/

@@ -1,8 +1,5 @@
-#include <iostream>
-#include "Booklet.h"
 #include "Student.h"
-#include "DynamicArray.cpp"
-#include "ExamCriteria.h"
+#include "DynamicArray.h"
 
 int main()
 {
