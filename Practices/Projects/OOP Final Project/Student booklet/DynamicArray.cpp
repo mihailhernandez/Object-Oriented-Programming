@@ -1,6 +1,4 @@
-#pragma once
-
-#include "DynamicArray.h"
+/*#include "DynamicArray.h"
 
 const unsigned int INITIAL_CAPACITY = 4;
 
@@ -170,3 +168,4 @@ std::ifstream& operator>>(std::ifstream& file_input_stream, DynamicArray<T>& arr
 	return file_input_stream;
 }
 */
+
