@@ -106,8 +106,6 @@ void DynamicArray<T>::push_back(const T& elem)
 template <class T>
 void DynamicArray<T>::pop_back()
 {
-	if (array[size] != nullptr)
-		delete[] array[size];
 	size--;
 }
 
