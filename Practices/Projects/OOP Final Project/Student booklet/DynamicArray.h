@@ -10,35 +10,37 @@ public:
 	class Iterator
 	{
 	public:
-		Iterator(const DynamicArray<T>*, const unsigned int);
+		Iterator(const DynamicArray<T>*, const  int);
 		Iterator& operator++();
 		bool operator!=(const Iterator&) const;
 		const T& operator*() const;
 
 	private:
 		const DynamicArray<T>* array;
-		unsigned int index;
+		int index;
 	};
 
 	DynamicArray();
-	DynamicArray(const unsigned int);
+	DynamicArray(const int);
 	DynamicArray(const DynamicArray&);
 	~DynamicArray();
-	DynamicArray& operator=(const DynamicArray&);
-	const T& operator[](const unsigned int) const;
+	DynamicArray<T>& operator=(const DynamicArray<T>&);
+	const T& operator[](const int) const;
 
 	Iterator begin() const;
 	Iterator end() const;
 
+	void clear();
 	void push_back(const T&);
 	void pop_back();
-	unsigned int get_size() const;
-	unsigned int get_capacity() const;
+	int get_size() const;
+	int get_capacity() const;
+	bool is_empty() const;
 	
 private:
 	T* array;
-	unsigned int capacity;
-	unsigned int size;
+	int capacity;
+	int size;
 
 	void copy(const DynamicArray&);
 	void resize();
@@ -46,17 +48,10 @@ private:
 
 template <class T>
 std::ostream& operator<<(std::ostream&, const DynamicArray<T>&);
-
-template <class T>
-std::ofstream& operator<<(std::ofstream&, const DynamicArray<T>&);
-
 template <class T>
 std::istream& operator>>(std::istream&, DynamicArray<T>&);
 
-template <class T>
-std::ifstream& operator>>(std::ifstream&, DynamicArray<T>&);
-
-const unsigned int INITIAL_CAPACITY = 4;
+const int INITIAL_CAPACITY = 4;
 
 template <class T>
 DynamicArray<T>::DynamicArray() :
@@ -65,7 +60,7 @@ DynamicArray<T>::DynamicArray() :
 	array(new T[INITIAL_CAPACITY]) {}
 
 template <class T>
-DynamicArray<T>::DynamicArray(const unsigned int capacity) :
+DynamicArray<T>::DynamicArray(const int capacity) :
 	size(0),
 	capacity(capacity),
 	array(new T[capacity]) {}
@@ -83,15 +78,17 @@ DynamicArray<T>::~DynamicArray()
 }
 
 template <class T>
-DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray& other)
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other)
 {
 	copy(other);
 	return *this;
 }
 
 template <class T>
-const T& DynamicArray<T>::operator[](const unsigned int index) const
+const T& DynamicArray<T>::operator[](const int index) const
 {
+	if (index < 0 || index >= size)
+		return nullptr;
 	return array[index];
 }
 
@@ -110,26 +107,24 @@ void DynamicArray<T>::pop_back()
 }
 
 template <class T>
-unsigned int DynamicArray<T>::get_size() const
+int DynamicArray<T>::get_size() const
 {
 	return size;
 }
 
 template <class T>
-unsigned int DynamicArray<T>::get_capacity() const
+int DynamicArray<T>::get_capacity() const
 {
 	return capacity;
 }
 
 template <class T>
-void DynamicArray<T>::copy(const DynamicArray<T> & other)
+void DynamicArray<T>::copy(const DynamicArray<T>& other)
 {
-	this->size = other.get_size();
-	this->capacity = other.get_capacity();
-	if (this->array != nullptr)
-		delete[] array;
-	this->array = new T * [other.get_size()];
-	for (unsigned int i = 0; i < other.size(); i++)
+	this->size = other.size;
+	this->capacity = other.capacity;
+	this->array = new T[other.size];
+	for (int i = 0; i < other.size; i++)
 		this->array[i] = other[i];
 }
 
@@ -138,21 +133,34 @@ void DynamicArray<T>::resize()
 {
 	capacity *= 2;
 	T* resized = new T[capacity];
-	for (unsigned int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)
 		resized[i] = array[i];
 	delete[] array;
 	array = resized;
 }
 
 template <class T>
-DynamicArray<T>::Iterator::Iterator(const DynamicArray<T> * array, const unsigned int index)
+void DynamicArray<T>::clear()
+{
+	while (!is_empty())
+		pop_back();
+}
+
+template <class T>
+bool DynamicArray<T>::is_empty() const
+{
+	return size == 0;
+}
+
+template <class T>
+DynamicArray<T>::Iterator::Iterator(const DynamicArray<T> * array, const int index)
 	: array(array),
 	index(index) {}
 
 template <class T>
 typename DynamicArray<T>::Iterator& DynamicArray<T>::Iterator::operator++()
 {
-	++index;
+	index++;
 	return *this;
 }
 
@@ -189,27 +197,10 @@ std::ostream& operator<<(std::ostream& output_stream, const DynamicArray<T>& arr
 }
 
 template <class T>
-std::ofstream& operator<<(std::ofstream& file_output_stream, const DynamicArray<T>& array)
-{
-	for (auto elem : array)
-		file_output_stream << elem;
-	return file_output_stream;
-}
-
-template <class T>
 std::istream& operator>>(std::istream& input_stream, DynamicArray<T>& array)
 {
 	T elem;
 	input_stream >> elem;
 	array.push_back(elem);
 	return input_stream;
-}
-
-template <class T>
-std::ifstream& operator>>(std::ifstream& file_input_stream, DynamicArray<T>& array)
-{
-	T elem;
-	file_input_stream >> elem;
-	array.push_back(elem);
-	return file_input_stream;
 }

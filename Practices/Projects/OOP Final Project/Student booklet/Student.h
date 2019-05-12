@@ -12,15 +12,16 @@ public:
 
 	Student(const Student&);
 	Student& operator=(const Student&);
+	bool operator==(const Student&);
 	
 	int get_faculty_number() const;
 	const char* get_first_name() const;
 	const char* get_last_name() const;
 
-	void set_faculty_number(const unsigned int);
+	void set_faculty_number(const int);
 	void set_first_name(const char*);
 	void set_last_name(const char*);
-	
+
 private:
 	int faculty_number;
 	char* first_name;
@@ -30,12 +31,9 @@ private:
 	void free();
 };
 
+void save_to_file(const char*, const Student&);
+void read_from_file(std::ifstream&, Student&);
+
+
 std::istream& operator>>(std::istream&, Student&);
 std::ostream& operator<<(std::ostream&, const Student&);
-std::ifstream& operator>>(std::ifstream&, Student&);
-std::ofstream& operator<<(std::ofstream&, const Student&);
-
-std::istream& operator>>(std::istream&, Student*);
-std::ostream& operator<<(std::ostream&, const Student*);
-std::ifstream& operator>>(std::ifstream&, Student*);
-std::ofstream& operator<<(std::ofstream&, const Student*);
