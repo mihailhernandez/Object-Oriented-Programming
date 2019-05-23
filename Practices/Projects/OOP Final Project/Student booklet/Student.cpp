@@ -1,23 +1,13 @@
-
 #include "Student.h"
-#include "Common.h"
 
-#include <cstring>
+Student::Student() : faculty_number(0), first_name(String()), last_name(String()) {}
 
-Student::Student() : faculty_number(0), first_name(nullptr), last_name(nullptr) {}
-
-Student::Student(const int faculty_number, const char* first_name, const char* last_name)
-	: faculty_number(0), first_name(nullptr), last_name(nullptr)
-{
-	set_faculty_number(faculty_number);
-	set_first_name(first_name);
-	set_last_name(last_name);
-}
+Student::Student(const int faculty_number, const String& first_name, const String& last_name)
+	: faculty_number(faculty_number), first_name(first_name), last_name(last_name) {}
 
 Student::Student(const Student& other_student)
 	: faculty_number(0), first_name(nullptr), last_name(nullptr)
 {
-	free();
 	copy(other_student);
 }
 
@@ -28,16 +18,8 @@ Student::~Student()
 
 Student& Student::operator=(const Student& other_student)
 {
-	free();
 	copy(other_student);
 	return *this;
-}
-
-bool Student::operator==(const Student& other)
-{
-	return faculty_number == other.faculty_number
-		&& strcmp(first_name, other.first_name) == 0
-		&& strcmp(last_name, other.last_name) == 0;
 }
 
 void Student::set_faculty_number(const int faculty_number)
@@ -45,16 +27,14 @@ void Student::set_faculty_number(const int faculty_number)
 	this->faculty_number = faculty_number;
 }
 
-void Student::set_first_name(const char* first_name)
+void Student::set_first_name(const String& first_name)
 {
-	delete[] this->first_name;
-	this->first_name = Utils::copy_string(first_name);
+	this->first_name = first_name;
 }
 
-void Student::set_last_name(const char* last_name)
+void Student::set_last_name(const String& last_name)
 {
-	delete[] this->last_name;
-	this->last_name = Utils::copy_string(last_name);
+	this->last_name = last_name;
 }
 
 int Student::get_faculty_number() const
@@ -62,14 +42,14 @@ int Student::get_faculty_number() const
 	return this->faculty_number;
 }
 
-const char* Student::get_first_name() const
+const String Student::get_first_name() const
 {
-	return first_name;
+	return String(first_name);
 }
 
-const char* Student::get_last_name() const
+const String Student::get_last_name() const
 {
-	return last_name;
+	return String(last_name);
 }
 
 void Student::copy(const Student& other_student)
@@ -81,8 +61,8 @@ void Student::copy(const Student& other_student)
 
 void Student::free()
 {
-	delete[] first_name;
-	delete[] last_name;
+	delete first_name;
+	delete last_name;
 }
 
 std::istream& operator>>(std::istream& input_stream, Student& student)

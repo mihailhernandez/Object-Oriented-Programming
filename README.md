@@ -51,9 +51,13 @@ _18. [Виртуални функции. Абстрактни класове](./
  - _[2019-04-15](./Seminars/Tasks/2019/04/15)_</br>
  - _[2019-04-22](./Seminars/Tasks/2019/04/22)_</br>
  - _[2019-05-10](./Seminars/Tasks/2019/05/10)_</br>
+ - _[2019-05-10](./Seminars/Tasks/2019/05/10)_</br>
+ - _[2019-05-13](./Seminars/Tasks/2019/05/13)_</br>
+ - _[2019-05-20](./Seminars/Tasks/2019/05/20)_</br>
 
 ### _Seminar homework_
-  - _[Homework 1](./Seminars/Homework/Homework_1/)_</br> 
+  - _[Homework 1](./Seminars/Homework/Homework_1/)_</br>
+  - _[Homework 2](./Seminars/Homework/Homework_2/)_</br> 
 
 ### _Practice classes_
  - _[2019-02-20](./Practices/Tasks/2019/02/20)_</br>

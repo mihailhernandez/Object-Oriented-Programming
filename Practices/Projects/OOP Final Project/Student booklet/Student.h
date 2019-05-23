@@ -3,29 +3,30 @@
 #include <iostream>
 #include <fstream>
 
+#include "String.h"
+
 class Student
 {
 public:
 	Student();
-	Student(const int, const char*, const char*);
+	Student(const int, const String&, const String&);
+	Student(const Student&);
 	~Student();
 
-	Student(const Student&);
 	Student& operator=(const Student&);
-	bool operator==(const Student&);
 	
 	int get_faculty_number() const;
-	const char* get_first_name() const;
-	const char* get_last_name() const;
+	const String* get_first_name() const;
+	const String* get_last_name() const;
 
 	void set_faculty_number(const int);
-	void set_first_name(const char*);
-	void set_last_name(const char*);
+	void set_first_name(const String&);
+	void set_last_name(const String&);
 
 private:
 	int faculty_number;
-	char* first_name;
-	char* last_name;
+	String first_name;
+	String last_name;
 
 	void copy(const Student&);
 	void free();
@@ -33,7 +34,6 @@ private:
 
 void save_to_file(const char*, const Student&);
 void read_from_file(std::ifstream&, Student&);
-
 
 std::istream& operator>>(std::istream&, Student&);
 std::ostream& operator<<(std::ostream&, const Student&);
