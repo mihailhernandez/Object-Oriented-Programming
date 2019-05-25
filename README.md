@@ -37,6 +37,10 @@ _15. [Виртуални класове](./Lectures/Lectures/Виртуални%
 _16. [Шаблони и наследяване](./Lectures/Lectures/Шаблони%20и%20наследяване.pdf)_</br>
 _17. [Множествено наследяване](./Lectures/Lectures/Множествено%20наследяване.pdf)_</br>
 _18. [Виртуални функции. Абстрактни класове](./Lectures/Lectures/Виртуални%20функции.%20Абстрактни%20класове.pdf)_</br>
+_19. [Статично и динамично свързване. Виртуални функции](./Lectures/Lectures/Статично%20и%20динамично%20свързване.%20Виртуални%20функции.pdf)_</br>
+_20. [Полиморфизъм. Абстрактен клас](./Lectures/Lectures/Полиморфизъм.%20Абстрактен%20клас.pdf)_</br>
+_21. [Виртуални деструтори](./Lectures/Lectures/Виртуални%20деструктори.pdf)_</br>
+_22. [Статични компоненти на класове](./Lectures/Lectures/Статични%20компоненти%20на%20класове.pdf)_</br>
 
 ### _Lecture homework_
 - _[Homework 1](./Lectures/Homeworks/Homework_1/)_</br>
@@ -70,6 +74,8 @@ _18. [Виртуални функции. Абстрактни класове](./
 
 ### _Practice exams_
  - _[Exam 1](./Practices/Exams/Exam_1/)_</br>
+ - _[Exam 2 preparation](./Practices/Exams/Exam_2_prep/)_</br>
+ - _[Exam 2](./Practices/Exams/Exam_2/)_</br>
 
 ### _Practice final project descriptions_
  - _[Final Projects](./Practices/Projects/ООП-проекти.pdf)_</br>
