@@ -2,38 +2,51 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstring>
 
-#include "String.h"
+#include "CriteriaFactory.h"
+#include "DynamicArray.h"
+#include "Criteria.h"
 
 class Student
 {
 public:
 	Student();
-	Student(const int, const String&, const String&);
+	Student(const int, const char*, const char*);
 	Student(const Student&);
 	~Student();
 
 	Student& operator=(const Student&);
 	
 	int get_faculty_number() const;
-	const String* get_first_name() const;
-	const String* get_last_name() const;
+	const char* get_first_name() const;
+	const char* get_last_name() const;
+	const DynamicArray<Criteria*>& get_criterias() const;
 
 	void set_faculty_number(const int);
-	void set_first_name(const String&);
-	void set_last_name(const String&);
+	void set_first_name(const char*);
+	void set_last_name(const char*);
+	void set_criterias(const DynamicArray<Criteria*>&);
+	
+	virtual void save_to_file(const char*) const;
+	virtual std::ios_base::streampos& read_from_file(const char*, std::ios_base::streampos&);
 
-private:
+	void print() const;
+protected:
+
 	int faculty_number;
-	String first_name;
-	String last_name;
+	char* first_name;
+	char* last_name;
+	DynamicArray<Criteria*> criterias;
 
-	void copy(const Student&);
+	void copy_from(const int, const char*, const char*);
 	void free();
+
+	void save_student_basic_info(const char*) const;
+	void save_criteria_info(const char*) const;
+
+	std::ios_base::streampos& read_criterias_from_file(const char*, std::ios_base::streampos&);
+	std::ios_base::streampos& read_student_info_from_file(const char*, std::ios_base::streampos&);
 };
 
-void save_to_file(const char*, const Student&);
-void read_from_file(std::ifstream&, Student&);
-
-std::istream& operator>>(std::istream&, Student&);
 std::ostream& operator<<(std::ostream&, const Student&);

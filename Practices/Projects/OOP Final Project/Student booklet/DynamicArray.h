@@ -22,7 +22,7 @@ public:
 
 	DynamicArray();
 	DynamicArray(const int);
-	DynamicArray(const DynamicArray&);
+	DynamicArray(const DynamicArray<T>&);
 	~DynamicArray();
 	DynamicArray<T>& operator=(const DynamicArray<T>&);
 	const T& operator[](const int) const;
@@ -42,12 +42,13 @@ private:
 	int capacity;
 	int size;
 
-	void copy(const DynamicArray&);
+	void copy(const DynamicArray<T>&);
 	void resize();
 };
 
 template <class T>
 std::ostream& operator<<(std::ostream&, const DynamicArray<T>&);
+
 template <class T>
 std::istream& operator>>(std::istream&, DynamicArray<T>&);
 
@@ -66,7 +67,7 @@ DynamicArray<T>::DynamicArray(const int capacity) :
 	array(new T[capacity]) {}
 
 template <class T>
-DynamicArray<T>::DynamicArray(const DynamicArray& other)
+DynamicArray<T>::DynamicArray(const DynamicArray<T>& other)
 {
 	copy(other);
 }
@@ -88,7 +89,7 @@ template <class T>
 const T& DynamicArray<T>::operator[](const int index) const
 {
 	if (index < 0 || index >= size)
-		return nullptr;
+		throw "ArrayOutOfBoundsException";
 	return array[index];
 }
 
