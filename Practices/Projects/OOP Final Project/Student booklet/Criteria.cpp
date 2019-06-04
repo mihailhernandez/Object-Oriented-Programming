@@ -84,13 +84,11 @@ std::ios_base::streampos& Criteria::read_from_file(const char* file_name, std::i
 	file.seekg(read_from_pos);
 
 	int criteria_name_len = 0;
-	double weight = 0;
 	file.read((char*)& criteria_name_len, sizeof(int));
 	this->criteria_name = new char[criteria_name_len];
 	file.read(this->criteria_name, sizeof(char) * criteria_name_len);
 	criteria_name[criteria_name_len] = '\0';
-	file.read((char*)& weight, sizeof(double));
-	this->weight = weight;
+	file.read((char*)& this->weight, sizeof(double));
 
 	read_from_pos = file.tellg();
 	file.close();

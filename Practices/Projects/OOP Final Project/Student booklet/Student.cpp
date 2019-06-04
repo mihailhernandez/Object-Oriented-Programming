@@ -101,16 +101,22 @@ std::ios_base::streampos& Student::read_student_info_from_file(const char* file_
 	file.seekg(read_from_pos);
 
 	int first_name_len, last_name_len;
-
+	char* first_name, * last_name;
 	file.read((char*)& faculty_number, sizeof(int));
 	file.read((char*)& first_name_len, sizeof(int));
-	this->first_name = new char[first_name_len];
-	file.read(this->first_name, sizeof(char) * first_name_len);
-	this->first_name[first_name_len] = '\0';
+	first_name = new char[first_name_len + 1];
+	file.read(first_name, sizeof(char) * first_name_len);
+	first_name[first_name_len] = '\0';
 	file.read((char*)& last_name_len, sizeof(int));
-	this->last_name = new char[last_name_len];
-	file.read(this->last_name, sizeof(char) * last_name_len);
-	this->last_name[last_name_len] = '\0';
+	last_name = new char[last_name_len + 1];
+	file.read(last_name, sizeof(char) * last_name_len);
+	last_name[last_name_len] = '\0';
+
+	set_first_name(first_name);
+	set_last_name(last_name);
+
+	delete[] first_name;
+	delete[] last_name;
 
 	read_from_pos = file.tellg();
 	file.close();
@@ -121,21 +127,6 @@ void Student::save_to_file(const char* file_name) const
 {
 	save_student_basic_info(file_name);
 	save_criteria_info(file_name);
-}
-
-void Student::save_criteria_info(const char* file_name) const
-{
-	std::ofstream file(file_name, std::ios::binary | std::ios::app);
-	if (!file)
-	{
-		std::cerr << "Error opening file " << file_name << std::endl;
-		return;
-	}
-	int criteria_count = criterias.get_size();
-	file.write((const char*)& criteria_count, sizeof(int));
-	file.close();
-	for (auto criteria : criterias)
-		criteria->save_to_file(file_name);
 }
 
 void Student::save_student_basic_info(const char* file_name) const
@@ -165,10 +156,25 @@ std::ios_base::streampos& Student::read_from_file(const char* file_name, std::io
 
 void Student::print() const
 {
-	std::cout << faculty_number << first_name << " " << last_name << std::endl;
+	std::cout << faculty_number << " " << first_name << " " << last_name << std::endl;
 	std::cout << "Results: " << std::endl;
 	for (auto criteria : criterias)
 		criteria->print();
+}
+
+void Student::save_criteria_info(const char* file_name) const
+{
+	std::ofstream file(file_name, std::ios::binary | std::ios::app);
+	if (!file)
+	{
+		std::cerr << "Error opening file " << file_name << std::endl;
+		return;
+	}
+	int criteria_count = criterias.get_size();
+	file.write((const char*)& criteria_count, sizeof(int));
+	file.close();
+	for (auto criteria : criterias)
+		criteria->save_to_file(file_name);
 }
 
 std::ios_base::streampos& Student::read_criterias_from_file(const char* file_name, std::ios_base::streampos& read_from_pos)
@@ -183,11 +189,13 @@ std::ios_base::streampos& Student::read_criterias_from_file(const char* file_nam
 
 	int criteria_count, identifier;
 	file.read((char*)& criteria_count, sizeof(int));
-	for (int i = 0; i < criteria_count - 1; i++)
+	read_from_pos = file.tellg();
+	for (int i = 0; i < criteria_count; i++)
 	{
+		file.seekg(read_from_pos);
 		file.read((char*)& identifier, sizeof(int));
-		Criteria* criteria = CriteriaFactory::create(identifier);
 		read_from_pos = file.tellg();
+		Criteria* criteria = CriteriaFactory::create(identifier);
 		criteria->read_from_file(file_name, read_from_pos);
 		criterias.push_back(criteria);
 	}
