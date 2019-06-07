@@ -11,9 +11,20 @@ void CreateTask::execute() const
 			std::cerr << "Could not open " << Constants::DATABASE_NAME << "!" << std::endl;
 			return;
 		}
-		Actor actor;
-		std::cin >> actor;
-		file << actor;
+		long long id, films;
+		char* first_name = new char[Constants::MAX_NAME_LEN];
+		char* last_name = new char[Constants::MAX_NAME_LEN];
+		std::cin >> id >> first_name >> last_name >> films;
+		int first_name_len = strlen(first_name);
+		int last_name_len = strlen(last_name);
+		file.write((const char*)& id, sizeof(long long));
+		file.write((const char*)& first_name_len, sizeof(int));
+		file.write((const char*)& first_name, sizeof(char) * first_name_len);
+		file.write((const char*)& last_name_len, sizeof(int));
+		file.write((const char*)& last_name, sizeof(char) * last_name_len);
+		file.write((const char*)& films, sizeof(long long));
+		delete[] first_name;
+		delete[] last_name;
 		file.close();
 		std::cout << "Record saved!" << std::endl;
 	}

@@ -12,10 +12,9 @@ public:
 	char* get_command() const;
 protected:
 	char* command = nullptr;
+
 	Task(const char* command);
 	void set_command(const char* command);
-private:
-	void copy(const Task& other);
 };
 
 #endif 

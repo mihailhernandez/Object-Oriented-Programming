@@ -13,9 +13,9 @@ namespace Constants
 	/* Number constants. */
 	static const unsigned int MAX_COMMAND_LENGHT = 256;
 
-	static const unsigned int MAX_NAME_LEN =    (unsigned int) pow(2, 8);
-	static const unsigned long long MAX_ID =    (unsigned long long) pow(2, 50);
-	static const unsigned long long MAX_FILMS = (unsigned long long) pow(2, 50);
+	static const int MAX_NAME_LEN =    (int) pow(2, 8);
+	static const long long MAX_ID =    (long long) pow(2, 50);
+	static const long long MAX_FILMS = (long long) pow(2, 50);
 }
 
 #endif
