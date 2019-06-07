@@ -20,6 +20,7 @@ ExamCriteria::~ExamCriteria()
 ExamCriteria* ExamCriteria::operator=(const ExamCriteria* criteria)
 {
 	ExamCriteria::copy_from(*criteria);
+	this->points = criteria->points;
 	return this;
 }
 

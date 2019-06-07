@@ -20,6 +20,7 @@ HomeworkCriteria::~HomeworkCriteria()
 HomeworkCriteria* HomeworkCriteria::operator=(const HomeworkCriteria* criteria)
 {
 	HomeworkCriteria::copy_from(*criteria);
+	this->grades = criteria->grades;
 	return this;
 }
 
