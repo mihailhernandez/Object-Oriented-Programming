@@ -2,9 +2,6 @@
 
 #include "Club.h"
 
-const int MINIMUM_VODKA_PRICE = 20;
-const int MINIMUM_
-
 class FolkClub : public Club
 {
 public:
@@ -17,8 +14,6 @@ public:
 
 	const String& get_singer() const;
 	void set_singer(const String&);
-	void set_vodka_price(const int);
-	void set_whiskey_price(const int);
 
 	bool add_to_club(const User&);
 

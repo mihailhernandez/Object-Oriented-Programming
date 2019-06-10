@@ -35,11 +35,6 @@ void FolkClub::set_singer(const String& singer)
 	this->singer = singer;
 }
 
-void FolkClub::set_vodka_price(const int vodka_price)
-{
-	if (vodka_price <)
-}
-
 bool FolkClub::add_to_club(const User& user)
 {
 	if (user.get_music() == Music::ROCK)
@@ -47,7 +42,7 @@ bool FolkClub::add_to_club(const User& user)
 		std::cout << user.get_name() << " hates " << get_music() << std::endl;
 		return false;
 	}
-	return add_to_club(user);
+	return Club::add_to_club(user);
 }
 
 void FolkClub::free()

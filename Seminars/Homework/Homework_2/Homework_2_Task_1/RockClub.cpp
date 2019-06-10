@@ -32,7 +32,7 @@ bool RockClub::add_to_club(const User& user)
 		std::cout << user.get_name() << " hates " << get_music() << std::endl;
 		return false;
 	}
-	return add_to_club(user);
+	return Club::add_to_club(user);
 }
 
 void RockClub::free()

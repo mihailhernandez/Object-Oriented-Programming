@@ -13,7 +13,7 @@ public:
 
 	Clubs& operator=(const Clubs&);
 
-	const Club** get_clubs() const;
+	Club** get_clubs() const;
 
 	bool add_folk_club(const String&, const int, const int, const String&);
 	bool add_house_club(const String&, const int, const int, const int);

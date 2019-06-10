@@ -27,7 +27,7 @@ Clubs& Clubs::operator=(const Clubs& clubs)
 	return *this;
 }
 
-const Club** Clubs::get_clubs() const
+Club** Clubs::get_clubs() const
 {
 	return clubs;
 }
@@ -80,8 +80,11 @@ bool Clubs::add_to_club(const User& user, const String& club_name)
 	return false;
 }
 
-bool Clubs::remove_from_club(const String&, const String&)
+bool Clubs::remove_from_club(const String& user_name, const String& club_name)
 {
+	for (int i = 0; i < size; i++)
+		if (club_name == this->clubs[i]->get_name())
+			return this->clubs[i]->remove_from_club(user_name);
 	return false;
 }
 
