@@ -11,7 +11,7 @@ Club::Club(const String& name, const int capacity, const int vodka_price, const 
 	set_name(name);
 	set_capacity(capacity);
 	set_vodka_price(vodka_price);
-	set_whiskey_price(capacity);
+	set_whiskey_price(whiskey_price);
 	set_music(music);
 	this->size = 0;
 	this->users = new User[this->capacity];
@@ -129,8 +129,10 @@ bool Club::remove_from_club(const String& name)
 			for (int j = i; j < size - 1; j++)
 				users[j] = users[j + 1];
 			size--;
+			std::cout << "Removed " << name << " from " << this->name << std::endl;
 			return true;
 		}
+	std::cout << "No " << name << " in " << this->name << std::endl;
 	return false;
 }
 
