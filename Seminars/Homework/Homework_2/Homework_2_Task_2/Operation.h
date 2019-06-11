@@ -20,6 +20,7 @@ public:
 	void set_right(BooleanExpression*);
 
 	void print() const;
+	int get_number_of_vars() const;
 
 protected:
 	void copy(const Operation&);
@@ -29,3 +30,5 @@ private:
 	BooleanExpression* left;
 	BooleanExpression* right;
 };
+
+bool operator==(const Operation&, const Operation&);

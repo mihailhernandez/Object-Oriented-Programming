@@ -5,6 +5,8 @@
 #include "Conjunction.h"
 #include "Disjunction.h"
 #include "Implication.h"
+#include "BiImplication.h"
+#include "ExclusiveOr.h"
 
 int main()
 {
@@ -32,11 +34,36 @@ int main()
 	BooleanExpression* disjunction_F_F = new Disjunction(contradiction, contradiction);
 
 	BooleanExpression* implication_p_p = new Implication(p, p);
-	BooleanExpression* implication_p_q = new Implication(p, q);
 	BooleanExpression* implication_T_F = new Implication(tauthology, contradiction);
 	BooleanExpression* implication_F_T = new Implication(contradiction, tauthology);
 	BooleanExpression* implication_T_T = new Implication(tauthology, tauthology);
 	BooleanExpression* implication_F_F = new Implication(contradiction, contradiction);
+
+	BooleanExpression* bi_implication_p_p = new BiImplication(p, p);
+	BooleanExpression* bi_implication_T_F = new BiImplication(tauthology, contradiction);
+	BooleanExpression* bi_implication_F_T = new BiImplication(contradiction, tauthology);
+	BooleanExpression* bi_implication_T_T = new BiImplication(tauthology, tauthology);
+	BooleanExpression* bi_implication_F_F = new BiImplication(contradiction, contradiction);
+
+	BooleanExpression* xor_p_p = new ExclusiveOr(p, p);
+	BooleanExpression* xor_T_F = new ExclusiveOr(tauthology, contradiction);
+	BooleanExpression* xor_F_T = new ExclusiveOr(contradiction, tauthology);
+	BooleanExpression* xor_T_T = new ExclusiveOr(tauthology, tauthology);
+	BooleanExpression* xor_F_F = new ExclusiveOr(contradiction, contradiction);
+
+	BooleanExpression* a = new Variable('a');
+	BooleanExpression* b = new Variable('b');
+	BooleanExpression* c = new Variable('c');
+	BooleanExpression* d = new Variable('d');
+	BooleanExpression* e = new Variable('e');
+	
+	
+	BooleanExpression* a_and_b = new Conjunction(a, b);
+	BooleanExpression* c_or_d = new Disjunction(c, d);
+	BooleanExpression* T_implies_e = new Implication(tauthology, e);
+	BooleanExpression* e_implies_T = new Implication(e, tauthology);
+	BooleanExpression* tauth_implication = new Implication(contradiction, new ExclusiveOr(T_implies_e, e_implies_T));
+	
 
 	/* Basic tauthology and contradiction properties checking. */
 
@@ -78,6 +105,28 @@ int main()
 	implication_F_T->print_all();
 	implication_T_F->print_all();
 	implication_F_F->print_all();
+
+	/* Simple bi-implication tests. */
+
+	bi_implication_p_p->print_all();
+	bi_implication_T_T->print_all();
+	bi_implication_F_T->print_all();
+	bi_implication_T_F->print_all();
+	bi_implication_F_F->print_all();
+
+	/* Simple exclusive or tests. */
+
+	xor_p_p->print_all();
+	xor_T_T->print_all();
+	xor_F_T->print_all();
+	xor_T_F->print_all();
+	xor_F_F->print_all();
+
+	/* Tauthology long logical proposition. */
+
+	tauth_implication->print_all();
+	std::cout << "Number of args for "; tauth_implication->print(); 
+	std::cout << ": " << tauth_implication->get_number_of_vars() << std::endl;
 
 	return 0;
 }

@@ -20,7 +20,9 @@ bool Implication::is_contingency() const
 
 bool Implication::is_tauthology() const
 {
-	return get_left()->is_contradiction() || (get_left()->is_tauthology() && get_right()->is_tauthology());
+	return get_left() == get_right() 
+		|| get_left()->is_contradiction() 
+		|| (get_left()->is_tauthology() && get_right()->is_tauthology());
 }
 
 bool Implication::is_contradiction() const

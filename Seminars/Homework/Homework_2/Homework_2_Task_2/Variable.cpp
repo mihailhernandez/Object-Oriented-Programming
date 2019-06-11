@@ -40,3 +40,13 @@ bool Variable::is_contradiction() const
 {
 	return this->symbol == 'F';
 }
+
+int Variable::get_number_of_vars() const
+{
+	return symbol == 'T' || symbol == 'F' ? 0 : 1;
+}
+
+bool operator==(const Variable& left, const Variable& right)
+{
+	return left.get_symbol() == right.get_symbol();
+}

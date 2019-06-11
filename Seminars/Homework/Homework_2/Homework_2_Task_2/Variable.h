@@ -16,9 +16,12 @@ public:
 	char get_symbol() const;
 
 	void print() const;
-	bool is_contingency()   const;
-	bool is_tauthology()    const;
-	bool is_contradiction() const;
+	bool is_contingency()    const;
+	bool is_tauthology()     const;
+	bool is_contradiction()  const;
+	int get_number_of_vars() const;
 private:
 	char symbol;
 };
+
+bool operator==(const Variable&, const Variable&);
